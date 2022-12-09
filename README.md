@@ -12,3 +12,16 @@ Meaning no outside sources were used for things like graphic design, UI layout o
 * **Can** be played with just keyboard or just mouse
 
 ![](/images/README/Hangman-Stage-1.png)
+***
+## Upcoming Features (v1.1)
+1. **Bug Fixes**
+    * Slider Selection after play again is triggered
+    * Restructure of webpage for more compatibility across systems
+    * Word hints that are a little missleading
+1. **Game Settings**
+    * Player can choose to have 0 hints
+    * Player can choose to have 4 chances
+1. **No Word Repeating**
+    * Game will be changed so that you cannot repeat guessed words
+1. **Settings Recall**
+    * Game will remember your settings when you play again
