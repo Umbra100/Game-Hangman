@@ -1,0 +1,591 @@
+:root {
+  /* MAIN PAGE */
+  --button-time: 0.2s;
+  --word-time: 0.4s;
+  --slider-time: 0.2s;
+  --background-time-main: 0.4s;
+  --graphic-scale-time: 0.4s;
+  --graphic-notch-fade-time: 0.5s;
+  --graphic-swing-time: 4s;
+  --graphic-swing-amount-for: 4deg;
+  --graphic-swing-amount-back: -4deg;
+
+  /*GAME PAGE*/
+  --hint-button-time: 0.4s;
+  --background-time-game: 0.4s;
+  --hint-list-time: 0.2s;
+  --hint-list-pop-time: 0.4s;
+  --strike-time: 0.3s;
+  --entryfield-time: 0.3s;
+  --enterbutton-time: 0.2s;
+  --hangword-time: 0.4s;
+  --hangman-scale-time: 0.4s;
+  --hangman-update-time: 0.3s;
+
+  /*END PAGE */
+  --triangle-breathe-time: 3.5s;
+  --triangle-breathe-scale: 1.35;
+  --playagain-time: 0.2s;
+  --end-time: 2s;
+  --end-title-time: 0.2s;
+}
+
+/*MAIN PAGE*/
+/* Graphic / Title */
+#title-graphic.main {
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+
+  transition: all var(--graphic-scale-time);
+}
+#title-graphic-container.main {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  margin-right: 0.0416%;
+  top: 45%;
+  left: 70%;
+  transform: translate(0, -50%);
+  transform-origin: 0 0;
+}
+#title-graphic.main:hover {
+  transform: scale(1.1);
+}
+
+.hang-graphic.main > g {
+  animation-name: hangman-swing;
+  animation-duration: var(--graphic-swing-time);
+  animation-iteration-count: infinite;
+  transform-origin: 35% 2%;
+}
+.hang-graphic.main > g > path {
+  transition: all var(--graphic-notch-fade-time);
+}
+@keyframes hangman-swing {
+  0% {
+    transform: rotate(var(--graphic-swing-amount-back));
+  }
+  50% {
+    transform: rotate(var(--graphic-swing-amount-for));
+  }
+  100% {
+    transform: rotate(var(--graphic-swing-amount-back));
+  }
+}
+
+#title.main {
+  transform: scale(1.4);
+  position: fixed;
+  left: 9%;
+  top: 24%;
+}
+#title.main > article {
+  transition: all var(--word-time), opacity var(--word-time);
+}
+#title.main > article:hover {
+  transform: scale(1.2);
+  opacity: 0.9;
+}
+
+/* UI */
+#ui-container.main {
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  bottom: -1%;
+  left: -1%;
+}
+
+#startButton.main {
+  font-size: 3.5em;
+  padding-left: 3.382%;
+  padding-right: 3.382%;
+  margin: auto;
+  left: 13%;
+  position: absolute;
+  cursor: pointer;
+
+  transition: all var(--button-time);
+}
+#startButton.main:hover {
+  transform: scale(1.3);
+  border-radius: 0.75vw;
+}
+
+.slider.main {
+  transform: scale(1.1);
+  margin-left: 15.33546%;
+
+  transition: all var(--slider-time);
+}
+.slider.main span {
+  position: relative;
+  font: normal normal 600 1.6666vw "OCR A Std", monospace;
+  top: -4.5vw;
+  left: 105%;
+  color: rgb(54, 54, 54);
+}
+.slider.main:hover {
+  transform: scale(1.2);
+}
+.slider.main.hover {
+  transform: scale(1.2);
+}
+
+/* Background Graphic */
+#back-graphic.main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+#back-graphic.main > svg {
+  width: inherit;
+  height: inherit;
+}
+#back-graphic.main > svg > .path-override {
+  opacity: 1;
+}
+#back-graphic.main > svg > path {
+  opacity: 0.7;
+
+  transition: all var(--background-time-main);
+}
+#back-graphic.main > svg > path:hover {
+  opacity: 1;
+}
+
+/*GAME PAGE*/
+/* Hangman */
+#hangman-container.game {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  transform: translate(-50%, -50%);
+}
+#hangman-container.game > *:not(#strikes) {
+  transform-origin: 100% 50%;
+  transition: all var(--hangman-scale-time);
+}
+#hangman-container.game > *:not(#strikes):hover {
+  transform: scale(1.1);
+}
+.hangHidden.game {
+  opacity: 0;
+}
+#hangman.game > g {
+  animation: hangman-bounce 3.25s infinite;
+  opacity: 1;
+
+  transition: opacity var(--hangman-update-time);
+}
+@keyframes hangman-bounce {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 2rem);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Hangman Word*/
+#hangword-container.game {
+  position: absolute;
+  width: fit-content;
+  top: 76.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#hangword.game {
+  transform: scale(1.1);
+}
+#hangword.game > * > p {
+  transition: all var(--hangword-time);
+}
+#hangword.game > *:not(.winChar):not(.lossChar) > p:hover {
+  color: rgb(29, 30, 32);
+}
+#hangword.game > article > p {
+  opacity: 0;
+}
+
+/* UI */
+#ui-container.game {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#ui-container.game > * {
+  float: right;
+}
+#ui-container.game > *:not(textarea) {
+  position: relative;
+  margin: auto 0.7528vw;
+  top: 0.81716vw;
+}
+#ui-container.game > .button {
+  transition: all var(--enterbutton-time);
+}
+#entryField.game {
+  cursor: text;
+  display: inline;
+  border-width: 0.3vw;
+  text-align: center;
+  font-size: 5vw;
+  overflow: hidden;
+  text-align-last: center;
+  border-color: rgb(95, 100, 179);
+  transition: all var(--entryfield-time);
+  caret-color: transparent;
+  width: 5vw;
+  height: 5vw;
+}
+#entryField.game:focus {
+  border-color: rgb(52, 54, 83);
+  border-radius: 1.225vw;
+}
+#enterButtonA.game,
+#enterButtonB.game {
+  width: 2.9184vw;
+  height: 2.9184vw;
+}
+
+/* Hints */
+#hintButton.game {
+  position: fixed;
+  width: 0.89vw;
+  height: 0.89vw;
+  border-radius: 100%;
+  padding: 0.4902vw;
+  opacity: 0.5;
+  top: 0.8%;
+  left: 0.8%;
+
+  transition: all var(--hint-button-time);
+  transform-origin: 0 0;
+}
+#hintButton.game > span {
+  cursor: pointer;
+  position: relative;
+  top: -80%;
+  left: -23.5%;
+  color: rgb(81, 83, 128);
+  font-size: 1.25em;
+}
+#hintButton.game > p#hintsLeft-container {
+  font-size: 0.81716vw;
+  font-weight: 400;
+  position: relative;
+  top: -720%;
+  left: 5vw;
+}
+#hintButton.game > p {
+  position: relative;
+  top: -530%;
+  left: 250%;
+  width: 7em;
+  opacity: 0;
+  transition: all var(--hint-button-time);
+}
+#hintButton.game:hover {
+  opacity: 1;
+  transform: scale(2);
+}
+#hintButton.game:hover > span {
+  color: rgb(46, 49, 77);
+}
+#hintButton.game:hover > p {
+  opacity: 1;
+}
+#hintButton.game.hover {
+  background-color: rgb(195, 182, 255);
+  border-color: rgb(161, 140, 255);
+}
+
+#hintButton.game.hover {
+  opacity: 1;
+  transform: scale(2);
+}
+#hintButton.game.hover > span {
+  color: rgb(46, 49, 77);
+}
+#hintButton.game.hover > p {
+  opacity: 1;
+}
+
+#hints.game {
+  position: absolute;
+  top: 23%;
+  left: 2%;
+  font: 600 1.2vw Verdana, sans-serif;
+  color: rgb(35, 37, 58);
+}
+#hints.game > span {
+  position: absolute;
+  top: -25%;
+  left: 0%;
+  font-size: 2vw;
+  transition: all var(--hint-list-time);
+  opacity: 0;
+}
+#hints.game > span:hover {
+  transform: scale(1.1);
+}
+#hints.game > li {
+  margin-bottom: 1vw;
+  transform-origin: 0 0;
+  transition: all var(--hint-list-time);
+  animation-duration: var(--hint-list-pop-time);
+  visibility: hidden;
+}
+#hints.game > li:hover {
+  transform: scale(1.1);
+}
+#hints.game > li > span {
+  color: rgb(71, 71, 71);
+  font-weight: normal;
+  display: block;
+  width: 60%;
+  word-wrap: break-word;
+}
+#hints.game > li::before {
+  content: "k";
+  opacity: 0;
+}
+
+.appear.game {
+  animation: appear 0.25s 1 forwards;
+}
+@keyframes appear {
+  from {
+    transform: scale(1.3);
+    opacity: 0;
+    visibility: visible;
+  }
+  to {
+    visibility: visible;
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Strikes */
+#strikes.game {
+  position: absolute;
+  top: 3%;
+  left: 95%;
+  list-style-type: none;
+  font: 600 3rem "Courier New", Courier, monospace;
+  color: rgb(49, 49, 49);
+}
+#strikes.game > * {
+  transition: all var(--strike-time);
+}
+#strikes.game > *:hover {
+  transform: scale(1.3);
+}
+
+/* Background Graphic*/
+#back-graphic.game {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+#back-graphic.game > svg {
+  width: inherit;
+  height: inherit;
+  transform: scaleY(-1);
+}
+#back-graphic.game > svg > .path-override {
+  opacity: 1;
+}
+#back-graphic.game > svg > path {
+  opacity: 0.7;
+
+  transition: opacity var(--background-time-game);
+}
+#back-graphic.game > svg > path:hover {
+  opacity: 1;
+}
+
+.alertFont.game {
+  animation: alertFont 0.6s 1;
+}
+@keyframes alertFont {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+    color: rgb(190, 88, 93);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.winChar.game {
+  animation: winChar 0.3s 1 forwards;
+}
+@keyframes winChar {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    color: rgb(201 196 54);
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+.lossChar.game {
+  animation: lossChar 0.3s 1 forwards;
+}
+.lossChar.game > p {
+  animation: lossChar-p 0.3s 1 forwards;
+}
+@keyframes lossChar {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    color: rgb(201, 84, 84);
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+@keyframes lossChar-p {
+  100% {
+    color: rgb(201, 84, 84);
+    opacity: 1;
+  }
+}
+
+/*END PAGE*/
+#end-title.end {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  font: normal normal 900 8.3vw "Courier New", monospace;
+  color: rgb(37, 37, 37);
+  margin: auto;
+  margin-top: 15%;
+  transition: all var(--end-title-time);
+}
+#end-title.end:hover {
+  color: rgb(59, 59, 59);
+}
+#playAgain.end {
+  position: relative;
+  margin: auto;
+  margin-top: 3%;
+  transform: scale(2);
+  z-index: 1;
+  transition: all var(--playagain-time);
+}
+#playAgain.end.red {
+  background-color: rgb(255, 140, 140);
+  border: 0.4rem solid rgb(255, 101, 101);
+}
+#playAgain.end.red:hover {
+  background-color: rgb(255, 182, 182);
+  border-color: rgb(255, 140, 140);
+  transform: scale(2.25);
+  border-radius: 0.625vw;
+}
+#playAgain.end.red:active {
+  background-color: rgb(201, 109, 109);
+  border: 0.4vw solid rgb(196, 70, 70);
+}
+#playAgain.end.blue {
+  background-color: rgb(161, 140, 255);
+  border: 0.4vw solid rgb(129, 101, 255);
+}
+#playAgain.end.blue:hover {
+  background-color: rgb(195, 182, 255);
+  border-color: rgb(161, 140, 255);
+  transform: scale(2.25);
+  border-radius: 0.625vw;
+}
+#playAgain.end.blue:active {
+  background-color: rgb(126, 109, 201);
+  border: 0.3vw solid rgb(93, 70, 196);
+}
+
+#end-graphic.end {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 1;
+  transform-origin: 0 0;
+}
+.end-graphic-triangle.end {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  z-index: 1;
+}
+.t1.end {
+  fill: rgb(98, 111, 223);
+}
+.t2.end {
+  fill: rgb(78, 94, 236);
+}
+.t3.end {
+  fill: rgb(134, 144, 229);
+}
+.t4.end {
+  fill: rgb(89, 99, 196);
+}
+.t5.end {
+  fill: rgb(133, 141, 211);
+}
+.t6.end {
+  fill: rgb(223, 98, 98);
+}
+.t7.end {
+  fill: rgb(236, 78, 78);
+}
+.t8.end {
+  fill: rgb(229, 134, 134);
+}
+.t9.end {
+  fill: rgb(196, 89, 89);
+}
+.t10.end {
+  fill: rgb(211, 133, 133);
+}
+
+/* animation: triangle-breathe var(--triangle-breathe-time) ease-in-out infinite forwards; */
+@keyframes triangle-breathe {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(var(--triangle-breathe-scale));
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.inactive.end {
+  opacity: 0;
+}
+.active.end :not(#end-backfade) {
+  opacity: 1;
+}

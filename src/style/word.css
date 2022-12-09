@@ -1,0 +1,25 @@
+.word {
+  width: fit-content;
+  margin: 0 auto;
+}
+article {
+  font-size: 4.1666vw;
+  text-align: center;
+  color: rgb(60, 61, 63);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  max-width: fit-content;
+  max-height: fit-content;
+  float: left;
+}
+.letter {
+  margin-top: 0;
+  margin-bottom: -0.6666vw;
+}
+.letter-underline {
+  width: 4.1666vw;
+  height: 0.5vw;
+  border-radius: 0.520833vw;
+  background-color: rgb(162, 194, 231);
+  margin: 0 0.4166vw 0.8333vw 0.4166vw;
+}

@@ -1,0 +1,67 @@
+.slider {
+  width: fit-content;
+  height: fit-content;
+}
+.slider .slider-notch {
+  position: relative;
+  width: 0.47%;
+  height: 0.833vw;
+  border-radius: 0.52083vw;
+  background-color: rgb(41, 22, 128);
+  margin: auto;
+  float: left;
+}
+.slider .slider-label {
+  top: -1rem;
+  position: relative;
+  font: normal normal 700 1.6666vw "Andale Mono", monospace;
+  margin: auto;
+  float: left;
+}
+.slider > input:focus-visible {
+  outline: none;
+}
+
+.button-container {
+  width: fit-content;
+  height: fit-content;
+}
+.button {
+  cursor: pointer;
+  user-select: none;
+  width: fit-content;
+  height: fit-content;
+  font: normal normal 900 1.6666vw "Courier New", monospace;
+  padding: 0.20833vw 0.33333vw;
+  background-color: rgb(161, 140, 255);
+  border: 0.33333vw solid rgb(129, 101, 255);
+  border-radius: 1.04166vw;
+  color: rgb(31, 31, 31);
+  text-align: center;
+  vertical-align: middle;
+}
+.button:hover {
+  background-color: rgb(195, 182, 255);
+  border-color: rgb(161, 140, 255);
+}
+.button:active {
+  background-color: rgb(126, 109, 201);
+  border: 0.33333vw solid rgb(93, 70, 196);
+}
+
+.textfield {
+  border: 3px solid rgb(123, 128, 199);
+  font: normal normal 900 3.33333vw "Courier New", monospace;
+  text-transform: capitalize;
+  color: rgb(56, 56, 56);
+  border-radius: 0.25vw;
+  text-indent: 0.16666vw;
+  resize: none;
+}
+.textfield:focus {
+  border-color: rgb(52, 54, 83);
+  border-radius: 0.625vw;
+}
+.textfield:focus-visible {
+  outline: none;
+}
