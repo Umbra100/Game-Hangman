@@ -1,0 +1,6 @@
+TODO:
+=====
+
+- Perform all actions listed in iOS notes.
+- Restructure code to use proper variable declaration and asynchronous functions
+- Make code more organized
