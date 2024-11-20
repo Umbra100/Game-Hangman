@@ -18,6 +18,7 @@ Meaning no outside sources were used for things like graphic design, UI layout o
     * Slider Selection after play again is triggered
     * Restructure of webpage for more compatibility across systems
     * Word hints that are a little missleading
+    * Webpage doesn't work well on resolutions above 1080p
 1. **Game Settings**
     * Player can choose to have 0 hints
     * Player can choose to have 4 chances
