@@ -12,4 +12,10 @@ Meaning no outside sources were used for things like graphic design, UI layout, 
 * **Can** be played with just a keyboard or just a mouse only.
 
 ![](/images/README/Hangman-Stage-1.png)
+
+![](/images/README/Hangman-Stage-2-Start.png)
+
+![](/images/README/Hangman-Stage-2-Gameplay.png)
+
+![](/images/README/Hangman-Stage-3-Winner.png)
 ***
